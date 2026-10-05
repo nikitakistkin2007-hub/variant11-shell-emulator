@@ -1,0 +1,16 @@
+# Startup script for stages 1-2 (stubs ls and cd, exit).
+# Lines starting with '#' are comments and are not echoed.
+
+ls                       # no arguments
+ls -l /home docs         # several arguments
+cd /var/log
+cd                       # no arguments
+ls "name with spaces"    # quoted argument stays one argument
+
+# Error handling
+rm file                  # error: unknown command
+echo "unterminated       # error: parse error
+exit now                 # error: exit takes no arguments
+
+exit
+ls                       # never executed: the script has ended
