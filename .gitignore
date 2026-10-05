@@ -1,0 +1,21 @@
+# Python service files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.coverage
+*.egg-info/
+.venv/
+venv/
+# Build artifacts and archives
+build/
+dist/
+*.zip
+*.tar.gz
+# Editor settings
+.idea/
+.vscode/
+*.swp
+# OS files
+.DS_Store
+Thumbs.db
