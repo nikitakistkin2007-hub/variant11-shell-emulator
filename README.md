@@ -62,9 +62,23 @@ python3 src/main.py --vfs vfs_demo
 python3 src/main.py --vfs vfs_demo --script scripts/startup.txt
 ```
 
+Windows (cmd, двойной щелчок или командная строка):
+
+```bat
+scripts\run.bat                      :: интерактивный режим
+scripts\run.bat scripts\startup.txt   :: выполнить стартовый скрипт
+scripts\test.bat                     :: тесты
+scripts\demo.bat                     :: вызовы со всеми параметрами
+```
+
+Скрипты `.bat` сами находят Python (`py`, затем `python`); нужный
+интерпретатор можно задать вручную: `set PYTHON=C:\path\to\python.exe`.
+Запускайте их из терминала (cmd или PowerShell, в PowerShell с `.\`),
+чтобы окно не закрывалось после завершения.
+
 Windows PowerShell: `.\scripts\demo.ps1`
 
-Скрипты ОС `scripts/demo.sh` и `scripts/demo.ps1` вызывают эмулятор со
+Скрипты ОС `scripts/demo.bat`, `scripts/demo.ps1` и `scripts/demo.sh` вызывают эмулятор со
 всеми параметрами: `--help`, только `--vfs` (интерактивный режим), `--vfs`
 со `--script`, а также с ошибочными параметрами (нет `--vfs`, нет файла
 скрипта, неизвестный параметр). Для каждого вызова печатается код выхода.
@@ -116,7 +130,8 @@ main.py: error: the following arguments are required: --vfs
 ```text
 src/main.py      исходный код эмулятора
 tests/           unittest: модульные и сквозные (запуск процесса) тесты
-scripts/         стартовый скрипт и скрипты ОС (demo.sh, demo.ps1)
+scripts/         стартовый скрипт и скрипты ОС (*.bat, demo.ps1, demo.sh;
+                 _env.bat - вспомогательный, ищет Python)
 vfs_demo/        каталог-заготовка для параметра --vfs
 Makefile         test / run / demo
 ```
